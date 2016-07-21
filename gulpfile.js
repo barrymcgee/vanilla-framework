@@ -80,6 +80,10 @@ gulp.task('pattern-library', function() {
     .clean(!devBuild) // clean folder before a production build
     .source(dir.source) // source folder (src/)
     .destination(dir.dest) // build folder (build/)
+    .use(permalinks({
+          pattern: ':collection/:title'
+      }))
+    .use(rootPath())
     .use(collections({
       settings: { // collection name
         patterns: 'src/vf/settings/*.hbt'
@@ -94,11 +98,9 @@ gulp.task('pattern-library', function() {
       },
     }))
     .use(markdown()) // convert markdown to html
-    .use(permalinks({
-        pattern: ':collection/:title'
-    }))
+
     .use(layouts(templateConfig)) // layout templating
-    .use(rootPath())
+
     .build(function (err) { // build or error log
         if(err) console.log(err)
     })

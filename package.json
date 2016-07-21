@@ -55,6 +55,7 @@
   },
   "version": "0.1.0",
   "dependencies": {
+    "metalsmith-layouts": "^1.6.5",
     "metalsmith-rootpath": "^1.0.4"
   }
 }
