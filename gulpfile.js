@@ -48,6 +48,7 @@ reload      = browserSync.reload,
 ghPages = require('gulp-gh-pages'),
 // Metalmsith - pattern library generation
 metalsmith = require('metalsmith'),
+rootPath = require('metalsmith-rootpath'),
 markdown   = require('metalsmith-markdown'),
 layouts = require('metalsmith-layouts'),
 collections = require('metalsmith-collections'),
@@ -97,6 +98,7 @@ gulp.task('pattern-library', function() {
         pattern: ':collection/:title'
     }))
     .use(layouts(templateConfig)) // layout templating
+    .use(rootPath())
     .build(function (err) { // build or error log
         if(err) console.log(err)
     })

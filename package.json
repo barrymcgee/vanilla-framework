@@ -53,5 +53,8 @@
     "clean": "rm -r build; rm -r node_modules",
     "prepublish": "./.install_dependencies.sh"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "dependencies": {
+    "metalsmith-rootpath": "^1.0.4"
+  }
 }
