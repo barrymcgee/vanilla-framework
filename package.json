@@ -24,7 +24,7 @@
     "gulp-sass": "2.3.2",
     "gulp-sass-lint": "1.2.0",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-util": "3.0.7",
+    "gulp-util": "3.0.8",
     "wrench": "^1.5.9"
   },
   "homepage": "http://ubuntudesign.github.io/vanilla-framework/",
