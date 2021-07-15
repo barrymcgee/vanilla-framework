@@ -131,6 +131,11 @@
         left: 0;
         right: 0;
       }
+
+      @if $position == bottom {
+        bottom: 0;
+        top: auto;
+      }
     }
   } @else if $position == left or $position == right {
     &::before {

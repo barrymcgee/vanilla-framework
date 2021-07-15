@@ -2,7 +2,7 @@
 
 @mixin vf-p-tabs {
   // for _patterns_tabs.scss
-  $color-tabs-active-bar: $color-mid-dark !default;
+  $color-tabs-active-bar: $colors--light-theme--text-default !default;
 
   .p-tabs {
     border-radius: 0;
@@ -33,23 +33,26 @@
     }
 
     &__link {
-      @include vf-focus;
+      @extend %vf-button-base;
+      @include vf-button-pattern(
+        $button-border-color: $color-transparent,
+        $button-hover-border-color: $color-transparent,
+        $button-active-border-color: $color-transparent,
+        $button-disabled-border-color: $color-transparent
+      );
+      @include vf-highlight-bar(transparent, bottom, false);
 
+      border: none;
       color: $color-dark;
       display: block;
       line-height: map-get($line-heights, default-text);
+      margin-bottom: 0;
       padding: $spv-inner--medium $sph-inner;
       position: relative;
 
-      &:active,
-      &:hover,
-      &:visited {
-        color: $color-dark;
-        text-decoration: none;
-      }
-
       &::before {
         @extend %vf-pseudo-border;
+        @include vf-animation(#{background-color, border-color}, snap, in);
 
         bottom: 0;
         z-index: 1;
@@ -72,7 +75,6 @@
       }
 
       &:active,
-      &:hover,
       &[aria-selected='true'] {
         @include vf-highlight-bar($color-tabs-active-bar, bottom, false);
 

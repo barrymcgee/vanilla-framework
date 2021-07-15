@@ -1,9 +1,11 @@
 utils
+codesnippet
 color
 colors
 center
 centered
 clearfix
+dialogs
 textarea
 fieldset
 middot
@@ -78,3 +80,4 @@ specs
 dropdown
 dropdowns
 playbook
+timestamp

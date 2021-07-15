@@ -77,8 +77,9 @@
   .p-side-navigation__drawer-header {
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    padding-bottom: $spv-inner--small;
-    padding-left: $sph-inner--small;
+    margin-bottom: $spv-outer--small;
+    padding-bottom: calc(#{$spv-inner--small} - 1px); // compensate for border thickness
+    padding-left: 0.25rem; // nudge to visually align icon with text
     padding-top: $spv-inner--small;
     position: sticky;
     top: 0;
@@ -108,7 +109,7 @@
   }
 
   .p-side-navigation__toggle--in-drawer {
-    margin-bottom: 0;
+    margin-bottom: $sp-unit * 2 - $spv-nudge * 2;
 
     &::before {
       transform: rotate(90deg);
@@ -176,12 +177,6 @@
 
   .p-side-navigation__list {
     @extend %side-navigation__list;
-  }
-
-  .p-side-navigation > .p-side-navigation__list:first-of-type,
-  .p-side-navigation__drawer > .p-side-navigation__list:first-of-type {
-    // nudge from top to put text on baseline grid
-    padding-top: 0.5 * $spv-inner--x-small;
   }
 
   .p-side-navigation__item--title {
@@ -257,7 +252,7 @@
       @include vf-side-navigation-spacing-left($prop: left);
 
       position: absolute;
-      top: $sph-inner--small;
+      top: $spv-inner--small;
     }
   }
 
@@ -452,17 +447,19 @@
       color: $color-sidenav-text-active;
     }
 
-    &:active {
+    &:active,
+    &.is-active,
+    &[aria-current='page'],
+    &[aria-current='true'] {
       background: $color-sidenav-item-background-active;
+      color: $color-sidenav-text-active;
+      cursor: default;
     }
 
     &.is-active,
     &[aria-current='page'],
     &[aria-current='true'] {
       @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
-
-      background: $color-sidenav-item-background-hover;
-      color: $color-sidenav-text-active;
     }
   }
 
@@ -503,7 +500,7 @@
 
 @mixin vf-side-navigation-theme-light {
   @include vf-side-navigation-theme(
-    $color-sidenav-text-default: $colors--light-theme--text-muted,
+    $color-sidenav-text-default: $colors--light-theme--text-inactive,
     $color-sidenav-background-default: $colors--light-theme--background-default,
     $color-sidenav-background-overlay: $colors--light-theme--background-overlay,
     $color-sidenav-text-active: $colors--light-theme--text-default,
@@ -511,7 +508,7 @@
     $color-sidenav-item-background-hover: $colors--light-theme--background-hover,
     $color-sidenav-item-border-highlight: $colors--light-theme--text-default,
     $color-sidenav-list-border: $colors--light-theme--border-low-contrast,
-    $color-sidenav-toggle-icon: $colors--light-theme--text-muted
+    $color-sidenav-toggle-icon: $colors--light-theme--text-inactive
   );
 }
 
@@ -521,7 +518,7 @@
   // but vf-url-friendly-color doesn't support rgba(),
   // so we are using #999 as fallback for now
   @include vf-side-navigation-theme(
-    $color-sidenav-text-default: $colors--dark-theme--text-muted,
+    $color-sidenav-text-default: $colors--dark-theme--text-inactive,
     $color-sidenav-background-default: $colors--dark-theme--background-default,
     $color-sidenav-background-overlay: $colors--dark-theme--background-overlay,
     $color-sidenav-text-active: $colors--dark-theme--text-default,
@@ -564,16 +561,13 @@
       color: $color-sidenav-text-active;
     }
 
-    &:active {
-      background: $color-sidenav-item-background-active;
-    }
-
+    &:active,
     &.is-active,
     &[aria-current='page'],
     &[aria-current='true'] {
       @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
 
-      background: $color-sidenav-item-background-hover;
+      background: $color-sidenav-item-background-active;
       color: $color-sidenav-text-active;
     }
   }
@@ -590,7 +584,7 @@
 
 @mixin vf-side-navigation-raw-html-theme-light {
   @include vf-side-navigation-raw-html-theme(
-    $color-sidenav-text-default: $colors--light-theme--text-muted,
+    $color-sidenav-text-default: $colors--light-theme--text-inactive,
     $color-sidenav-text-active: $colors--light-theme--text-default,
     $color-sidenav-item-background-active: $colors--light-theme--background-active,
     $color-sidenav-item-background-hover: $colors--light-theme--background-hover,
@@ -601,7 +595,7 @@
 
 @mixin vf-side-navigation-raw-html-theme-dark {
   @include vf-side-navigation-raw-html-theme(
-    $color-sidenav-text-default: $colors--dark-theme--text-muted,
+    $color-sidenav-text-default: $colors--dark-theme--text-inactive,
     $color-sidenav-text-active: $colors--dark-theme--text-default,
     $color-sidenav-item-background-active: $colors--dark-theme--background-active,
     $color-sidenav-item-background-hover: $colors--dark-theme--background-hover,

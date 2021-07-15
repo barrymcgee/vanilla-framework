@@ -12,7 +12,7 @@ function generateMetrics(file, metricsArray) {
     {
       name: 'Stylesheet size',
       benchmark: 150000,
-      threshold: 270000,
+      threshold: 310000,
       result: results['total-stylesheet-size'],
     },
     {
@@ -37,7 +37,7 @@ function generateMetrics(file, metricsArray) {
     {
       name: 'Identifiers per selectors',
       benchmark: 1.75,
-      threshold: 2.6,
+      threshold: 2.7,
       result: results['identifiers-per-selector'],
     },
     {

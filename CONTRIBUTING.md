@@ -2,7 +2,19 @@
 
 So, you'd like to contribute to Vanilla framework? Great!
 
-## Bugs and issues
+## Table of contents
+
+- [Code of conduct](#code-of-conduct)
+- [Reporting bugs and issues](#reporting-bugs-and-issues)
+- [Working with the Vanilla project](#working-with-the-vanilla-project)
+- [Pull requests](#pull-requests)
+- [Releasing Vanilla](#releasing-vanilla)
+
+## [Code of Conduct](/CODE_OF_CONDUCT.md)
+
+As developers and maintainers of the Vanilla project, we follow a [Code of Conduct](/CODE_OF_CONDUCT.md), and ask that all contributors do the same.
+
+## Reporting bugs and issues
 
 We use the [GitHub issues](https://github.com/canonical-web-and-design/vanilla-framework/issues) to track all our bugs and feature requests.
 
@@ -10,15 +22,25 @@ When [submitting a new issue](https://github.com/canonical-web-and-design/vanill
 
 Please provide as much information possible detailing what you're currently experiencing and what you'd expect to experience.
 
-## Pull requests
+## [Working with the Vanilla project](/guides/hacking.md)
 
-To work on an issue, please fork this repo and create a new branch on your local fork. When you're happy and would like to propose that changeset to be merged back upstream, open a pull request to merge from your local `origin/master` to `upstream/develop`.
+- [Running the project](/guides/hacking.md#running-the-project)
+- [Viewing documentation and examples](/guides/hacking.md#viewing-documentation-and-examples)
+- [QA testing](/guides/hacking.md#qa-testing)
+- [Adding new icons](/guides/hacking.md#adding-new-icons)
 
-When committing changes, make sure to group related changes so that the project is always in a working state. Use succinct yet descriptive commit messages to allow for easy reading of the commit log.
+## [Pull requests](/guides/pull-requests.md)
 
-### Running tests locally
+- [Working on an issue](/guides/pull-requests.md#working-on-an-issue)
+- [Preparing a pull request for review](/guides/pull-requests.md#preparing-a-pull-request-for-review)
 
-Before proposing a pull request, ensure that the tests pass on your local fork. To kick off the tests, run `./run test`.
+## [Releasing Vanilla](/guides/release-process.md)
+
+- [Pre release tasks](/guides/release-process.md#pre-release-tasks)
+- [Releasing](/guides/release-process.md#releasing)
+- [Deploying vanillaframework.io](/guides/release-process.md#deploy-vanillaframeworkio)
+- [Releasing React Components](/guides/release-process.md#react-components)
+- [Promotion](/guides/release-process.md#promotion)
 
 ## Licenses
 

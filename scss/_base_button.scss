@@ -9,7 +9,7 @@
   }
 
   %vf-button-base {
-    @include vf-animation(#{background-color, border-color}, fast, in);
+    @include vf-animation(#{background-color, border-color}, snap, in);
     @include vf-focus;
 
     border-radius: $border-radius;
@@ -22,7 +22,7 @@
     justify-content: center;
     line-height: map-get($line-heights, default-text);
     margin: 0 0 $input-margin-bottom 0;
-    padding: calc(#{$spv-nudge} - 1px) $sph-inner;
+    padding: $input-vertical-padding $sph-inner;
     text-align: center;
     text-decoration: none;
     width: 100%;
@@ -69,17 +69,17 @@
 
     // The following rules address buttons nested in <p>'s;
     p & {
-      margin-bottom: $spv-outer--small-scaleable - $spv-nudge;
+      margin-bottom: $sp-unit + $spv-nudge-compensation;
       margin-top: -#{$spv-nudge};
     }
 
     p + p > & {
-      margin-top: $spv-outer--small - $spv-nudge;
+      margin-top: $spv-nudge-compensation;
     }
 
     @media (max-width: $breakpoint-x-small - 1) {
       p & + & {
-        margin-top: $spv-outer--small + $spv-nudge-compensation;
+        margin-top: $sp-unit + $spv-nudge-compensation;
       }
     }
     // stylelint-enable selector-max-type
@@ -90,20 +90,34 @@
       @include vf-icon-success($color-x-light, $color-transparent);
     }
   }
+
+  %vf-button-has-icon {
+    width: auto;
+
+    & [class*='p-icon'] {
+      margin-left: $sph-inner--small;
+      margin-right: $sph-inner--small;
+
+      &:first-child {
+        margin-left: -#{$sph-inner--small};
+      }
+
+      &:last-child {
+        margin-right: -#{$sph-inner--small};
+      }
+    }
+  }
 }
 
-/// mixin for all the buttons
-/// there are sensible defaults, but you can
-/// override colors as desired
 @mixin vf-button-pattern(
-  $button-background-color: $color-x-light,
-  $button-text-color: $color-dark,
+  $button-background-color: $colors--light-theme--background-default,
+  $button-text-color: $colors--light-theme--text-default,
   $button-disabled-background-color: $color-transparent,
   $button-disabled-border-color: $colors--light-theme--border-high-contrast,
   $button-border-color: $colors--light-theme--border-high-contrast,
-  $button-hover-background-color: scale-color($color-x-light, $lightness: -$hover-background-opacity-amount * 100%),
+  $button-hover-background-color: $colors--light-theme--background-hover,
   $button-hover-border-color: $colors--light-theme--border-high-contrast,
-  $button-active-background-color: scale-color($color-x-light, $lightness: -$active-background-opacity-amount * 100%),
+  $button-active-background-color: $colors--light-theme--background-active,
   $button-active-border-color: $colors--light-theme--border-high-contrast
 ) {
   background-color: $button-background-color;

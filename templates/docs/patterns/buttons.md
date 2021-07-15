@@ -16,17 +16,23 @@ Buttons are clickable elements used to perform an action, you can apply `button`
   </p>
 </div>
 
+### Default
+
+A default button can be used to indicate a positive action that isn't necessarily the main call-to-action.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/buttons/default/" class="js-example">
+View example of the default button pattern
+</a></div>
+
 ### Neutral
 
-A neutral button can be used to indicate a positive action that isn't necessarily the main call-to-action.
+<span class="p-label--deprecated">Deprecated</span>
 
-<div class="embedded-example"><a href="/docs/examples/patterns/buttons/neutral/" class="js-example">
-View example of the neutral button pattern
-</a></div>
+The neutral button style provided by `p-button--neutral` is exactly the same as default `p-button` styling, so neutral variant is deprecated and will be removed in future version 3.0 of Vanilla. Please use `p-button` instead.
 
 ### Base
 
-A base button can be used to discretely indicate a secondary action. It is often used alongside a neutral button.
+A base button can be used to discretely indicate a secondary action. It is often used alongside a default button.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/buttons/base/" class="js-example">
 View example of the base button pattern
@@ -54,6 +60,16 @@ You can use the brand button with the main color of your brand.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/buttons/brand/" class="js-example">
 View example of the brand button pattern
+</a></div>
+
+### Link
+
+<span class="p-label--new">New</span>
+
+In some contexts you may need a button to look visually identical to a link.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/buttons/link/" class="js-example">
+View example of the link button pattern
 </a></div>
 
 ### Inline
@@ -102,6 +118,17 @@ View example of the processing button pattern
 
 The `is-active` utility class was renamed to the more appropriate `is-processing`, as mentioned above.
 
+### Theming
+
+The buttons use Vanilla's light theme by default. There are two ways to switch between the light and the dark themes:
+
+- Override the default by adding a state to `p-putton`: `is-dark` when the default navigation is light, or `is-light` when the default has been changed to dark:
+- Change the default: go to `_settings_themes.scss` and set `$theme-default-p-button` to `dark`
+
+<div class="embedded-example"><a href="/docs/examples/patterns/buttons/dark" class="js-example">
+View example of the buttons with an is-dark class
+</a></div>
+
 ### Accessibility
 
 In some contexts, it may be necessary to indicate to the user that a button is in a pressed state, such as when a button opens a contextual menu. This can be done by adding `aria-pressed="true"` to the button with JavaScript when the button is clicked, and removed when necessary.
@@ -127,6 +154,10 @@ If you only need a small subset of the icons consider [including them individual
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+### React
 
-For more information view the [buttons design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Buttons) which includes the specification in markdown format and a PNG image.
+You can use buttons in React by installing our react-component library and importing `Button` or `ActionButton` component.
+
+[See the documentation for our React `Button` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/button--base#button)
+
+[See the documentation for our React `ActionButton` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/actionbutton--default-story#actionbutton)

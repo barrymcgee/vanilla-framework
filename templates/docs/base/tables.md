@@ -82,6 +82,14 @@ The `<thead>` element is completely hidden from view on a smaller screen and if 
 View example of the patterns table mobile card
 </a></div>
 
+### Overflow
+
+By default, all table cells have `overflow: hidden;` applied to help maintain a table's layout at reduced widths. In some cases it is necessary to allow a cell's contents to overflow, such as when using the [contextual menu](/docs/patterns/contextual-menu) or [tooltip](/docs/patterns/tooltips) patterns, and this can be achieved by applying the `.has-overflow` class to appropriate cells.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tables/table-overflow" class="js-example">
+View example of the patterns table mobile card
+</a></div>
+
 ### Import
 
 To import either or all of these components into your project, copy the snippets below and include it in your main Sass file.
@@ -100,6 +108,10 @@ To import either or all of these components into your project, copy the snippets
 
 For more information see [Customising Vanilla](/docs/customising-vanilla/) in your projects, which includes overrides and importing instructions.
 
-### Design
+### React
 
-For more information view the [table](https://github.com/ubuntudesign/vanilla-design/tree/master/Table), [sortable](https://github.com/ubuntudesign/vanilla-design/tree/master/Table%20sortable), [expanding](https://github.com/ubuntudesign/vanilla-design/tree/master/Table) or [mobile card design spec](https://github.com/ubuntudesign/vanilla-design/tree/master/Table) which includes the specification in markdown format and a PNG image.
+You can use tables in React by installing our react-component library and importing `MainTable` or `ModularTable` component.
+
+[See the documentation for our React `MainTable` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/maintable--default-story#maintable)
+
+[See the documentation for our React `ModularTable` component](https://canonical-web-and-design.github.io/react-components/?path=/docs/modulartable--default-story)
